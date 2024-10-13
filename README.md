@@ -25,3 +25,6 @@ This project focuses on applying clustering methods, specifically the k-Means al
   Clone the repository and install the dependencies:
   ```bash
   git clone https://github.com/Diegodepab/clustering_genes.git
+
+## Disclaimer 
+This is an activity from the University of Malaga, in the subject Computational Learning by Professor [MIGUEL ANGEL MOLINA CABELLO ](https://www.uma.es/departments/teachers/blBnRDVqRUpWVW96NVRHSmNTTjROUT09/)
