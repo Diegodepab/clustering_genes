@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.27)  14 OCT 2024 01:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.27)  14 OCT 2024 02:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -229,11 +229,85 @@ Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks23
 \inpenc@posthook=\toks24
 )
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmat
+h.sty
+Package: amsmath 2024/05/23 v2.17q AMS math features
+\@mathmargin=\skip56
+
+For additional information on amsmath, use the `?' option.
+
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstex
+t.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen
+.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks25
+\ex@=\dimen181
+))
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy
+.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen182
+)
+(C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn
+.sty
+Package: amsopn 2022/04/08 v2.04 operator names
+)
+\inf@bad=\count302
+LaTeX Info: Redefining \frac on input line 233.
+\uproot@=\count303
+\leftroot@=\count304
+LaTeX Info: Redefining \overline on input line 398.
+LaTeX Info: Redefining \colon on input line 409.
+\classnum@=\count305
+\DOTSCASE@=\count306
+LaTeX Info: Redefining \ldots on input line 495.
+LaTeX Info: Redefining \dots on input line 498.
+LaTeX Info: Redefining \cdots on input line 619.
+\Mathstrutbox@=\box102
+\strutbox@=\box103
+LaTeX Info: Redefining \big on input line 721.
+LaTeX Info: Redefining \Big on input line 722.
+LaTeX Info: Redefining \bigg on input line 723.
+LaTeX Info: Redefining \Bigg on input line 724.
+\big@size=\dimen183
+LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
+\macc@depth=\count307
+LaTeX Info: Redefining \bmod on input line 904.
+LaTeX Info: Redefining \pmod on input line 909.
+LaTeX Info: Redefining \smash on input line 939.
+LaTeX Info: Redefining \relbar on input line 969.
+LaTeX Info: Redefining \Relbar on input line 970.
+\c@MaxMatrixCols=\count308
+\dotsspace@=\muskip17
+\c@parentequation=\count309
+\dspbrk@lvl=\count310
+\tag@help=\toks26
+\row@=\count311
+\column@=\count312
+\maxfields@=\count313
+\andhelp@=\toks27
+\eqnshift@=\dimen184
+\alignsep@=\dimen185
+\tagshift@=\dimen186
+\tagwidth@=\dimen187
+\totwidth@=\dimen188
+\lineht@=\dimen189
+\@envbody=\toks28
+\multlinegap=\skip57
+\multlinetaggap=\skip58
+\mathdisplay@stack=\toks29
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+)
 (C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3ba
 ckend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count302
-\l__pdf_internal_box=\box102
+\l__color_backend_stack_int=\count314
+\l__pdf_internal_box=\box104
 ) (main.aux)
 \openout1 = `main.aux'.
 
@@ -255,17 +329,17 @@ LaTeX Font Info:    ... okay on input line 12.
 (C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\su
 pp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count303
-\scratchdimen=\dimen181
-\scratchbox=\box103
-\nofMPsegments=\count304
-\nofMParguments=\count305
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count306
-\MPscratchDim=\dimen182
-\MPnumerator=\count307
-\makeMPintoPDFobject=\count308
-\everyMPtoPDFconversion=\toks26
+\scratchcounter=\count315
+\scratchdimen=\dimen190
+\scratchbox=\box105
+\nofMPsegments=\count316
+\nofMParguments=\count317
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count318
+\MPscratchDim=\dimen191
+\MPnumerator=\count319
+\makeMPintoPDFobject=\count320
+\everyMPtoPDFconversion=\toks31
 )
 (C:\Users\Diego De Pablo\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\e
 pstopdf-base.sty
@@ -319,15 +393,11 @@ G,.JBIG2,.JB2,.eps]
 pdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 21.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 21.
 <images/sporlutation.png, id=1, 681.747pt x 359.54324pt>
 File: images/sporlutation.png Graphic file (type png)
 <use images/sporlutation.png>
-Package pdftex.def Info: images/sporlutation.png  used on input line 50.
-(pdftex.def)             Requested size: 281.85587pt x 148.64807pt.
+Package pdftex.def Info: images/sporlutation.png  used on input line 51.
+(pdftex.def)             Requested size: 258.36668pt x 136.26027pt.
 
 
 [1
@@ -337,7 +407,7 @@ mages/sporlutation.png>]
 <images/som.jpg, id=15, 376.40625pt x 362.85562pt>
 File: images/som.jpg Graphic file (type jpg)
 <use images/som.jpg>
-Package pdftex.def Info: images/som.jpg  used on input line 99.
+Package pdftex.def Info: images/som.jpg  used on input line 103.
 (pdftex.def)             Requested size: 211.38832pt x 203.78465pt.
 
 
@@ -345,37 +415,40 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
 
-[2] (main.bbl)
+[2]
 
-[3 <./images/som.jpg>] (main.aux)
+[3 <./images/som.jpg>] (main.bbl)
+
+[4] (main.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 2558 strings out of 473899
- 44587 string characters out of 5722216
- 440881 words of memory out of 5000000
- 25412 multiletter control sequences out of 15000+600000
- 561052 words of font info for 46 fonts, out of 8000000 for 9000
+ 3264 strings out of 473899
+ 53837 string characters out of 5722216
+ 453538 words of memory out of 5000000
+ 26101 multiletter control sequences out of 15000+600000
+ 561506 words of font info for 48 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 59i,6n,67p,694b,273s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 59i,6n,67p,839b,282s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Diego De Pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx10.pfb><C:/Users/Diego De Pablo/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Diego De Pablo/AppData/Local/Pr
 ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/Diego De Pablo
-/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Use
-rs/Diego De Pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmr9.pfb><C:/Users/Diego De Pablo/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmsy10.pfb><C:/Users/Diego De Pablo/AppData/Local/Programs/MiKT
-eX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Diego De Pablo/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/Diego D
-e Pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-
-Output written on main.pdf (3 pages, 574456 bytes).
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Us
+ers/Diego De Pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
+/cmr10.pfb><C:/Users/Diego De Pablo/AppData/Local/Programs/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmr9.pfb><C:/Users/Diego De Pablo/AppData/Local/Programs/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/Diego De Pablo/AppData/L
+ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/Diego 
+De Pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb
+><C:/Users/Diego De Pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
+onts/cm/cmtt9.pfb>
+Output written on main.pdf (4 pages, 591374 bytes).
 PDF statistics:
- 61 PDF objects out of 1000 (max. 8388607)
+ 69 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

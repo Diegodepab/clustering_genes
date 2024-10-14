@@ -6,7 +6,7 @@
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage[utf8]{inputenc}
-
+\usepackage{amsmath} 
 
 
 \begin{document}
@@ -22,7 +22,7 @@ Health Engineering. Málaga University.}
 
 \vspace{1cm} % Space down the title
 
-\textit{Italic paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.}
+\textit{This work presents a comparison between three main clustering methods applied to yeast sporulation data: K-means, hierarchical clustering and self-organizing maps (SOM). K-means was used to cluster genes based on expression patterns, selecting the optimal number of clusters using the elbow method. Hierarchical clustering allowed to analyze the structure of the data without predefining a number of clusters, using a dendrogram to identify significant groups. Finally, SOM was applied as an unsupervised clustering technique, with a visual representation reflecting the topology of the data. This comparison aims to evaluate the effectiveness of each method in gene clustering, similar to the work Comparisons and validation of statistical clustering techniques for microarray gene expression data}
 
 % This is a comment
 
@@ -44,14 +44,16 @@ Gene expression during sporulation follows distinct temporal patterns, observe t
 	\item \textbf{Mid-Late:} Increased expression from t7 to t9, linked to spore wall formation.
 	\item \textbf{Late:} Induction between t9 and t11.5, associated with spore maturation.
 \end{itemize}
+\vspace{-25pt}
 
 \begin{figure}[h!]
 	\begin{center}  % Usamos el entorno 'center'
-		\includegraphics[width=0.6\textwidth]{images/sporlutation.png}
+		\includegraphics[width=0.55\textwidth]{images/sporlutation.png}
 		\caption{A representation of the process of sporulation in budding yeasts}
 		\label{fig:Sporlutation}
 	\end{center}
 \end{figure}
+
 
 By utilizing DNA microarrays encompassing a significant portion of key genes, we can comprehensively investigate temporal gene expression patterns throughout the process of meiotic spore formation. However, this technique generates large datasets of unlabeled gene expression data, making pattern identification challenging. The abundance of expression levels for hundreds of genes at different time points presents an ideal scenario for applying clustering algorithms to uncover meaningful gene groups and understand the underlying transcriptional regulatory mechanisms.\cite{datta2003}
 
@@ -61,10 +63,12 @@ While hierarchical clustering (UPGMA) with correlation distance has been a popul
 
 
 
-
 \section{description of the methods}
 
-Clustering methods The following clustering techniques were considered.
+There is a wide variety of clustering techniques, in this work it was decided to focus on details that were not carried out in the paper Comparisons and validation of statistical
+clustering techniques for microarray gene
+expression data by the Datta brothers, giving priority to the following:
+\subsection{clustering techniques}
 
 
 \begin{itemize}
@@ -89,7 +93,7 @@ Clustering methods The following clustering techniques were considered.
 			\item \textbf{Repetition:} Steps 2 and 3 are repeated until the centroids no longer move significantly or a maximum number of iterations is reached.\cite{steinley2006}
 		\end{enumerate}
 		
-		\item \textbf{Self-Organizing Maps (SOM):} A SOM is an unsupervised neural network that learns to map high-dimensional data onto a low-dimensional grid. It identifies representative prototype vectors and establishes a continuous mapping from the input space to this grid. The grid, often visualized as a 2D map (see Figure \ref{fig:som}), consists of neurons with associated weight vectors. These weight vectors are initially random but converge to represent clusters of similar data points during training.
+		\item \textbf{Self-Organizing Maps (SOM):} is an unsupervised neural network that learns to map high-dimensional data onto a low-dimensional grid. It identifies representative prototype vectors and establishes a continuous mapping from the input space to this grid. The grid, often visualized as a 2D map (see Figure \ref{fig:som}), consists of neurons with associated weight vectors. These weight vectors are initially random but converge to represent clusters of similar data points during training.
 		
 	
 \end{itemize}
@@ -101,6 +105,40 @@ Clustering methods The following clustering techniques were considered.
 		\label{fig:som}
 	\end{center}
 \end{figure}
+
+\vspace{-30pt}
+
+\subsection{Additional Clustering Methods which are theoretically mentioned}
+
+\begin{itemize}
+	\item \textbf{DIANA (Divisive Analysis Clustering):} This method differs from hierarchical clustering in that it starts with all data in a single cluster and progressively divides it into sub-clusters.\cite{datta2003}
+	
+	\item \textbf{Fanny:} Utilizes fuzzy logic to generate a probability vector for each observation, assigning observations to clusters based on the highest probability. L1 distance (Manhattan distance) is typically used as the dissimilarity measure, offering robustness compared to Euclidean distance. \cite{datta2003}
+	
+	\item \textbf{Model-based Clustering:} Treats the data as arising from a mixture of distributions, allowing for a probabilistic interpretation of clusters.\cite{datta2003}
+	
+	\item \textbf{Hierarchical Clustering with Partial Least Squares:} Leverages partial least squares to identify gene relationships through their expression profiles, demonstrating its effectiveness as noted by Datta (2001)\cite{datta2003}.
+\end{itemize}
+
+\subsection{Validation Methods}
+
+
+To validate the obtained clusters, we can employ various strategies. One approach is to experiment with different numbers of clusters and observe how the average distance between points and their respective cluster centroids changes. This is known as the \textit{elbow method} due to the characteristic elbow shape of the resulting graph. However, the elbow method alone does not guarantee optimal cluster formation.
+
+To address this, we can utilize \textit{silhouette analysis}, a cluster validation technique based on the silhouette coefficient. The silhouette coefficient measures the similarity of a data point to its own cluster compared to its similarity to neighboring clusters. It ranges from -1 to 1, with values closer to 1 indicating better cluster membership and values closer to -1 suggesting misclassification.
+
+The silhouette coefficient is calculated as follows:
+
+\begin{itemize}
+	\item \(a\): The average distance between a point and all other points in its cluster.
+	\item \(b\): The average distance between a point and all points in the nearest different cluster.
+\end{itemize}
+
+\[
+\text{Silhouette Coefficient} = \frac{(b - a)}{\max(a, b)}
+\]
+
+By calculating the average silhouette coefficient for all points within each cluster, we can assess the overall cluster validity. Combining silhouette analysis with the elbow method can help us determine the optimal number of clusters that minimize the overall distance between points and their clusters while maximizing the silhouette coefficient, suggesting well-formed and meaningful clusters.
 
 \section{most relevant results obtained comparing both methods}
 
