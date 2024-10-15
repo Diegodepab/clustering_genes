@@ -123,22 +123,96 @@ expression data by the Datta brothers, giving priority to the following:
 \subsection{Validation Methods}
 
 
-To validate the obtained clusters, we can employ various strategies. One approach is to experiment with different numbers of clusters and observe how the average distance between points and their respective cluster centroids changes. This is known as the \textit{elbow method} due to the characteristic elbow shape of the resulting graph. However, the elbow method alone does not guarantee optimal cluster formation.
+To validate the obtained clusters, we can employ various strategies. One approach is to experiment with different numbers of clusters and observe how the average distance between points and their respective cluster centroids changes. This is known as the \textit{elbow method} due to the characteristic elbow shape of the resulting graph. However, the elbow method alone does not guarantee optimal cluster formation.\cite{Wang2018Thresher}
 
-To address this, we can utilize \textit{silhouette analysis}, a cluster validation technique based on the silhouette coefficient. The silhouette coefficient measures the similarity of a data point to its own cluster compared to its similarity to neighboring clusters. It ranges from -1 to 1, with values closer to 1 indicating better cluster membership and values closer to -1 suggesting misclassification.
+\subsubsection{Silhuoette}
 
+To address this, we can utilize \textit{silhouette analysis}, a cluster validation technique based on the silhouette coefficient. The silhouette coefficient measures the similarity of a data point to its own cluster compared to its similarity to neighboring clusters. It ranges from -1 to 1, with values closer to 1 indicating better cluster membership and values closer to -1 suggesting misclassification.\cite{Wang2018Thresher}
+
+
+In simple terms, it helps us determine whether the data has been grouped correctly and whether the clusters formed are coherent.
 The silhouette coefficient is calculated as follows:
 
 \begin{itemize}
-	\item \(a\): The average distance between a point and all other points in its cluster.
-	\item \(b\): The average distance between a point and all points in the nearest different cluster.
+	\item \(a\): The average distance between a point and all other points in its cluster. This tells us how well the point fits within its cluster.
+	\item \(b\): The average distance between a point and all points in the nearest different cluster.This tells us how well the point would fit into the closest neighboring cluster.
 \end{itemize}
 
 \[
 \text{Silhouette Coefficient} = \frac{(b - a)}{\max(a, b)}
 \]
 
-By calculating the average silhouette coefficient for all points within each cluster, we can assess the overall cluster validity. Combining silhouette analysis with the elbow method can help us determine the optimal number of clusters that minimize the overall distance between points and their clusters while maximizing the silhouette coefficient, suggesting well-formed and meaningful clusters.
+By calculating the average silhouette coefficient for all points within each cluster, we can assess the overall cluster validity. Combining silhouette analysis with the elbow method can help us determine the optimal number of clusters that minimize the overall distance between points and their clusters while maximizing the silhouette coefficient, suggesting well-formed and meaningful clusters.\cite{Wang2018Thresher}
+
+\subsubsection{Calinski-Harabasz Index}
+
+
+The Calinski-Harabasz Index (CHI) is a metric used to assess the quality of clustering in cluster analysis, offering a different approach from the silhouette coefficient. It evaluates the clustering performance by comparing two types of sum of squares:\cite{Ning2023Clustering}
+
+\begin{itemize}
+	\item \textbf{Between-cluster sum of squares (SSB):} Measures the separation between the cluster centroids. A higher SSB indicates that clusters are more distinct from each other.
+	\item \textbf{Within-cluster sum of squares (SSW):} Measures the dispersion of data points within each cluster. A lower SSW indicates that the clusters are more compact.
+\end{itemize}
+
+The Calinski-Harabasz Index is calculated using the following formula:
+
+\[
+\text{CHI} = \frac{\text{SSB} / (k - 1)}{\text{SSW} / (n - k)}
+\]
+
+where:
+\begin{itemize}
+	\item $k$ is the number of clusters.
+	\item $n$ is the total number of data points.
+\end{itemize}
+
+A higher CHI value indicates better clustering quality, as it suggests that clusters are well separated and the data within each cluster are homogeneous. Thus, the index provides a measure of the balance between cluster separation and the compactness of the data points within each cluster.\cite{Ning2023Clustering}
+
+\subsubsection{The Davies-Bouldin Index}
+
+ is a widely used metric for evaluating the quality of clustering, offering an approach that complements other measures such as the silhouette coefficient and the Calinski-Harabasz index. It provides an assessment of whether the formed clusters are both compact and well-separated. The index is calculated as the average similarity between each cluster and its most similar neighboring cluster, with lower values indicating better clustering performance.\cite{Davies1979Cluster}
+
+\subsubsection*{Calculation of the Davies-Bouldin Index}
+
+The computation of the DBI involves several steps:
+
+\begin{enumerate}
+	\item \textbf{Centroid Calculation:} For each cluster, compute the centroid, which is the average of all data points within the cluster.
+	\item \textbf{Cluster Diameter Calculation:} For each cluster, calculate its diameter, defined as the maximum distance between any two points in the cluster.
+	\item \textbf{Centroid Distance Calculation:} Calculate the distance between the centroids of each pair of clusters.
+	\item \textbf{Similarity Calculation:} For each cluster, find the nearest neighboring cluster (the one with the closest centroid) and compute the similarity using the formula:
+	\[
+	S(i) = \frac{D(i) + D(j)}{d_{ij}}
+	\]
+	where:
+	\begin{itemize}
+		\item $S(i)$ is the similarity of cluster $i$ to its nearest neighbor $j$.
+		\item $D(i)$ and $D(j)$ are the diameters of clusters $i$ and $j$, respectively.
+		\item $d_{ij}$ is the distance between the centroids of clusters $i$ and $j$.
+	\end{itemize}
+\end{enumerate}
+
+The Davies-Bouldin Index is then computed as the average of the similarity values for all clusters.\cite{Davies1979Cluster}
+
+In essence, the Davies-Bouldin Index seeks to minimize the similarity between clusters, with lower values reflecting better-defined and more compact clusters.
+
+\subsubsection{Average Proportion of Non-Overlap Measure} It is a metric used by the Datta brothers in Comparisons and validation of statistical clustering techniques for microarray gene expression data\cite{datta2003}, denoted as $V_1$, is used to evaluate the consistency of a clustering algorithm by examining the stability of gene assignments across different clustering scenarios. It is defined as:
+
+\[
+V_1 = \frac{1}{M l} \sum_{g=1}^{M} \sum_{i=1}^{l} \left( 1 - \frac{n(C_{g,i} \cap C_{g,0})}{n(C_{g,0})} \right),
+\]
+
+where:
+\begin{itemize}
+	\item $M$ is the total number of genes.
+	\item $l$ is the number of time points.
+	\item $C_{g,0}$ represents the cluster assignment of gene $g$ when using the full dataset.
+	\item $C_{g,i}$ represents the cluster assignment of gene $g$ when the expression levels at time point $T_i$ are excluded.
+	\item $n(C_{g,i} \cap C_{g,0})$ is the number of genes that remain in the same cluster in both the original and reduced datasets.
+\end{itemize}
+
+The measure calculates the average proportion of genes that are not assigned to the same cluster when comparing the clustering results obtained using the complete dataset with the results obtained after removing expression data for one time point. Lower values of $V_1$ indicate greater stability and consistency of the clustering algorithm, reflecting better preservation of gene cluster assignments despite variations in the data.\cite{datta2003}
+
 
 \section{most relevant results obtained comparing both methods}
 
