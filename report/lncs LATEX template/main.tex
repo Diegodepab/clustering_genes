@@ -63,16 +63,16 @@ While hierarchical clustering (UPGMA) with correlation distance has been a popul
 
 
 
-\section{description of the methods}
+\section{Description of the Methods}
 
 There is a wide variety of clustering techniques, in this work it was decided to focus on details that were not carried out in the paper Comparisons and validation of statistical
 clustering techniques for microarray gene
 expression data by the Datta brothers, giving priority to the following:
-\subsection{clustering techniques}
+\subsection{Clustering Techniques}
 
 
 \begin{itemize}
-	\item \textbf{Hierarchical Clustering with Correlation:} Hierarchical clustering with correlation is a method that groups data into a hierarchical structure rather than assigning a fixed number of clusters beforehand. It starts with each data point as a separate cluster and gradually merges the closest clusters until a single cluster remains.\cite{guess2002}
+	\item \textbf{Hierarchical Clustering:} is a method that groups data into a hierarchical structure rather than assigning a fixed number of clusters beforehand. It starts with each data point as a separate cluster and gradually merges the closest clusters until a single cluster remains.\cite{guess2002}
 	
 	\begin{itemize}
 		\item \textbf{Algorithm:} The "average" method is used to calculate the distance between clusters. This method computes the average distance between points in one cluster and points in the other cluster.\cite{datta2003}
@@ -84,7 +84,7 @@ expression data by the Datta brothers, giving priority to the following:
 	
 	
 		
-		\item \textbf{K-means Clustering:} Clustering is an unsupervised machine learning technique used to divide a dataset into distinct groups or clusters. Each cluster consists of data points that are more similar to each other than to those in other clusters. K-means is a popular clustering algorithm that partitions data into a predefined number of clusters, represented by centroids. The algorithm works iteratively to assign data points to the nearest centroid, updating centroids based on the mean of the points assigned to each cluster.\cite{steinley2006}
+		\item \textbf{K-means:} is an unsupervised machine learning technique used to divide a dataset into distinct groups or clusters. Each cluster consists of data points that are more similar to each other than to those in other clusters. K-means is a popular clustering algorithm that partitions data into a predefined number of clusters, represented by centroids. The algorithm works iteratively to assign data points to the nearest centroid, updating centroids based on the mean of the points assigned to each cluster.\cite{steinley2006}
 		
 		\begin{enumerate}
 			\item \textbf{Initialization:} k points are randomly selected from the dataset as initial centroids of the k clusters. These centroids represent the center of each cluster.
@@ -341,7 +341,7 @@ The complexity of the dendrogram reflects the inherent heterogeneity of the data
   
   Technological advancements, particularly in artificial intelligence, have accelerated rapidly. As a result, optimizing methodologies has become a paramount task for the growing community of programmers. Comparing technologies from different eras can be challenging due to significant advancements in both approaches and results.
   
-  The paper 'Comparisons and validation of statistical clustering techniques for microarray gene expression data' (May 2002) utilized S+ for analysis. Despite the over two-decade difference in technology, this study demonstrates that the methods employed in the original paper may not yield identical performance when using Python-based tools.
+  The paper 'Comparisons and validation of statistical clustering techniques for microarray gene expression data' (May 2002) utilized S+ for analysis. Despite the over two-decade difference in technology, this study demonstrates that the methods employed in the original paper may not yield identical performance when using Python-based tools. furthermore, although the dataset used is a Sporulation data microarray, the dataset used in the study reaches 6118 genes involved in total, a figure greater than the 474 genes used in this work.
   
   While the original study considered K values from 4 to 12, our analysis suggests that K=2 provides superior results in kmeans for the current dataset. Although the elbow method and SOM might favor K=4, K=2 consistently outperforms them in terms of the V1 metric and overall clustering quality when implemented kmean using Python's scikit-learn library.
  
