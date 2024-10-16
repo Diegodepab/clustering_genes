@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.27)  15 OCT 2024 03:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.9.27)  16 OCT 2024 03:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -419,24 +419,91 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 [3 <./images/som.jpg>]
 
-[4] (main.bbl
+[4]
+<images/Gene_Expression_Data.png, id=28, 1265.4477pt x 1241.5986pt>
+File: images/Gene_Expression_Data.png Graphic file (type png)
+<use images/Gene_Expression_Data.png>
+Package pdftex.def Info: images/Gene_Expression_Data.png  used on input line 22
+9.
+(pdftex.def)             Requested size: 352.31625pt x 345.67493pt.
 
-[5])
 
-[6] (main.aux)
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+
+[5]
+<images/kmeans.jpg, id=34, 1759.57375pt x 892.33376pt>
+File: images/kmeans.jpg Graphic file (type jpg)
+<use images/kmeans.jpg>
+Package pdftex.def Info: images/kmeans.jpg  used on input line 249.
+(pdftex.def)             Requested size: 422.77664pt x 214.39595pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+
+[6 <./images/Gene_Expression_Data.png>]
+<images/kmeans_PCA_with_2_components_ k=2.png, id=39, 607.068pt x 505.1673pt>
+File: images/kmeans_PCA_with_2_components_ k=2.png Graphic file (type png)
+<use images/kmeans_PCA_with_2_components_ k=2.png>
+Package pdftex.def Info: images/kmeans_PCA_with_2_components_ k=2.png  used on 
+input line 259.
+(pdftex.def)             Requested size: 234.8775pt x 195.44968pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+
+[7 <./images/kmeans.jpg> <./images/kmeans_PCA_with_2_components_ k=2.png>]
+<images/silhouette_kmeans_PCA_with_2_components_ k=2.png, id=45, 612.1269pt x 3
+93.8715pt>
+File: images/silhouette_kmeans_PCA_with_2_components_ k=2.png Graphic file (typ
+e png)
+<use images/silhouette_kmeans_PCA_with_2_components_ k=2.png>
+Package pdftex.def Info: images/silhouette_kmeans_PCA_with_2_components_ k=2.pn
+g  used on input line 269.
+(pdftex.def)             Requested size: 352.31625pt x 226.69672pt.
+<images/hierarchical_clustering.png, id=46, 714.7503pt x 503.7219pt>
+File: images/hierarchical_clustering.png Graphic file (type png)
+<use images/hierarchical_clustering.png>
+Package pdftex.def Info: images/hierarchical_clustering.png  used on input line
+ 289.
+(pdftex.def)             Requested size: 211.38832pt x 148.97328pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+
+[8 <./images/silhouette_kmeans_PCA_with_2_components_ k=2.png>]
+<images/SOM_clustering.png, id=51, 464.6961pt x 393.8715pt>
+File: images/SOM_clustering.png Graphic file (type png)
+<use images/SOM_clustering.png>
+Package pdftex.def Info: images/SOM_clustering.png  used on input line 305.
+(pdftex.def)             Requested size: 211.38832pt x 179.16974pt.
+
+
+[9 <./images/hierarchical_clustering.png> <./images/SOM_clustering.png>]
+(main.bbl
+
+[10])
+
+[11] (main.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-08-30>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3267 strings out of 473899
- 53894 string characters out of 5722216
- 453547 words of memory out of 5000000
- 26104 multiletter control sequences out of 15000+600000
- 561506 words of font info for 48 fonts, out of 8000000 for 9000
+ 3333 strings out of 473899
+ 55986 string characters out of 5722216
+ 453648 words of memory out of 5000000
+ 26164 multiletter control sequences out of 15000+600000
+ 563482 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 59i,6n,67p,839b,282s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 59i,8n,67p,839b,282s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/Diego De Pablo/AppData/Local/Programs/MiKTeX/fonts/type1/public/ams
 fonts/cm/cmbx10.pfb><C:/Users/Diego De Pablo/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Diego De Pablo/AppData/Local/Pr
@@ -453,9 +520,9 @@ ts/cm/cmsy10.pfb><C:/Users/Diego De Pablo/AppData/Local/Programs/MiKTeX/fonts/t
 ype1/public/amsfonts/cm/cmti10.pfb><C:/Users/Diego De Pablo/AppData/Local/Progr
 ams/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><C:/Users/Diego De Pablo/Ap
 pData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
-Output written on main.pdf (6 pages, 630194 bytes).
+Output written on main.pdf (11 pages, 1553477 bytes).
 PDF statistics:
- 90 PDF objects out of 1000 (max. 8388607)
+ 118 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

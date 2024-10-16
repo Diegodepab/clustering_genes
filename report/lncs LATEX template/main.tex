@@ -214,14 +214,140 @@ where:
 The measure calculates the average proportion of genes that are not assigned to the same cluster when comparing the clustering results obtained using the complete dataset with the results obtained after removing expression data for one time point. Lower values of $V_1$ indicate greater stability and consistency of the clustering algorithm, reflecting better preservation of gene cluster assignments despite variations in the data.\cite{datta2003}
 
 
-\section{most relevant results obtained comparing both methods}
+\section{Data Analysis}
 
-\textbf{Bold paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.}
+As mentioned, the dataset used in this study consists of gene expression data pertaining to the sporulation process in yeast (Saccharomyces cerevisiae), sourced from publicly available repositories and utilized in previous scientific research. To facilitate analysis, the data was processed using Python within the Google Colab environment.
+
+As a preprocessing step, missing values, constituting 0.42\% of the dataset, were removed to ensure data integrity and consistency. Additionally, the data was standardized to mitigate the impact of varying data magnitudes on clustering algorithms like K-means.
+
+To visualize gene expression patterns over time, the Python Seaborn library was employed. Heatmaps were generated to identify genes with similar temporal behavior and to detect any potential outliers or irregularities introduced during the standardization process.
+
+Visual analysis revealed a stable distribution of data points across the variables, suggesting balanced representation and good standardization of the data. Notably, the variable t0 exerted a significant influence during bivariate analysis, consistently exhibiting a relatively stable proportion of examples in two distinct groups (refer to the first row and column of Figure \ref{fig:bivariante}). Moreover, t0 and T7 demonstrated a degree of stability in bivariate analysis with other variables. While a clear pattern is not immediately apparent for the remaining variables, it is premature to draw definitive conclusions, as complex interactions between variables may unveil hidden patterns upon further exploration. 
+
+\begin{figure}[h!]
+	\begin{center}  % Usamos el entorno 'center'
+		\includegraphics[width=0.75\textwidth]{images/Gene_Expression_Data.png}
+		\caption{Scatter matrix of the variables in the dataset, generated with Seaborn. Each cell represents the relationship between two variables, showing their joint distribution and correlation.}
+		\label{fig:bivariante}
+	\end{center}
+\end{figure}
+
+
+
+\section{most relevant results}
+
+A key focus of this study is to determine the optimal value for k when applying the K-means clustering algorithm. Additionally, we will compare the performance, advantages, and disadvantages of three clustering methods: K-means, hierarchical clustering, and self-organizing maps. To provide a broader context, we will also benchmark our results against the findings presented in the paper 'Comparisons and validation of statistical clustering techniques for microarray gene expression data' (May 2003), which utilized S+ for similar analyses.
+
+\subsection{k-means}
  
+ To determine the optimal K value for K-means clustering, multiple metrics were considered, with particular emphasis on the Silhouette Score and V1 (Average Proportion of Non-Overlap Measure). The Python scikit-learn library was employed to implement K-means and visualize the resulting metrics for K values ranging from 2 to 8 (Figure 4).
+ 
+ While the elbow method suggested K = 4 as the optimal value, K = 2 consistently outperformed K = 4 in terms of the Silhouette Score and V1. These metrics indicate superior cluster separation and cohesion for K = 2, making it the preferred choice for this dataset.
+ 
+ \begin{figure}[h!]
+ 	\begin{center}  % Usamos el entorno 'center'
+ 		\includegraphics[width=0.9\textwidth]{images/kmeans.jpg}
+ 		\caption{Clustering metrics for K=2 to K=8: Silhouette Score, Davies-Bouldin Index, Calinski-Harabasz Index, and V1 Score.}
+ 		\label{fig:kmean}
+ 	\end{center}
+ \end{figure}
+ 
+ To address the complexity arising from the seven-dimensional dataset, the representation can become very complex, we employed Principal Component Analysis (PCA) as a dimensionality reduction technique. PCA transforms correlated variables into a smaller set of uncorrelated components, facilitating visualization and analysis. By applying PCA, we were able to project the data onto a 2D plane, enabling a more intuitive representation of the clustering results with the figure \ref{fig:kmean_representacion}.
+ 
+  \begin{figure}[h!]
+	\begin{center}  % Usamos el entorno 'center'
+		\includegraphics[width=0.5\textwidth]{images/kmeans_PCA_with_2_components_ k=2.png}
+		\caption{Visualization of the dataset after dimension reduction with 2 cluster}
+		\label{fig:kmean_representacion}
+	\end{center}
+\end{figure}
+ 
+ As previously discussed, the Silhouette Coefficient is a valuable metric for evaluating cluster quality. In the case of K=2, we obtained a coefficient of 0.459. However, for a more comprehensive understanding, Figure \ref*{fig:kmean_silhoete} provides a visual representation of the silhouette scores for all data points within the two clusters. This visualization allows us to assess the distribution of silhouette values and identify any outliers or inconsistencies.In this analysis, we observe that certain data points are assigned to clusters that may not be their optimal fit. This is evident when examining the silhouette plot, where some points exhibit negative silhouette values, suggesting they might be better classified in alternative clusters.
+ 
+ \begin{figure}[h!]
+ 	\begin{center}  % Usamos el entorno 'center'
+ 		\includegraphics[width=0.75\textwidth]{images/silhouette_kmeans_PCA_with_2_components_ k=2.png}
+ 		\caption{Silhouette plot for K=2: Evaluating cluster cohesion and separation.}
+ 		\label{fig:kmean_silhoete}
+ 	\end{center}
+ \end{figure}
+ 
+ Although the possibility of a three-dimensional representation of the data was explored, it did not provide additional insights compared to two-dimensional visualization. The lack of clear separability between clusters in three-dimensional space, as well as the difficulty in visual interpretation, motivated the choice to discard these results.
+ 
+ \subsection{Hierarchical Clustering (HC)}
+ 
+Hierarchical clustering (HC) was implemented using the scikit-learn library to provide a complementary perspective to the K-means analysis. A dendrogram was constructed to visualize the hierarchical structure of the clusters and aid in interpreting the results. By examining the dendrogram and calculating relevant metrics, we were able to identify the optimal number of clusters.
+
+The analysis of the figure \ref{fig:hyerarchical} revealed the formation of two unique clusters that encompass the entire dataset, aligning with the findings from the K-means clustering. However, the dendrogram also highlights the complex hierarchical relationships within the data. The tree-like structure illustrates how the data points are grouped at different levels of similarity. Lower branches represent more homogeneous subgroups, while higher branches indicate more heterogeneous clusters.
+
+The complexity of the dendrogram reflects the inherent heterogeneity of the dataset, suggesting that while two primary clusters are evident, there may be finer-grained substructures within these clusters. Further exploration of these substructures could provide additional insights into the underlying patterns and relationships within the data.
+ 
+ 
+
+  \begin{figure}[h!]
+ 	\begin{center}  % Usamos el entorno 'center'
+ 		\includegraphics[width=0.45\textwidth]{images/hierarchical_clustering.png}
+ 		\caption{Hierarchical clustering (HC)}
+ 		\label{fig:hyerarchical}
+ 	\end{center}
+ \end{figure}
+ 
+  \subsection{Self-organizing maps (SOM)}
+  
+  While previous studies on this dataset have employed various clustering techniques, we chose to explore the application of Self-Organizing Maps (SOMs) using the minisom library in Python. Although SOMs can be a valuable tool, their performance is highly sensitive to parameters such as grid size, sigma value, learning rate, and thresholds.
+  
+  Our experiments with different SOM configurations revealed that the size of the map significantly influenced the clustering results. While larger maps (e.g., 25x25) might be expected to capture more complex patterns, we found that a smaller map size of 10x10 provided the most robust and meaningful clustering results (see the figure \ref{fig:SOM}), aligning with the conclusions drawn from other clustering methods.
+  
+  While SOMs can be effective, their performance can exhibit variability due to the inherent randomness in neural network training. In our experiments, SOMs generally yielded better results for the V1 metric and often suggested an optimal cluster number of 4, consistent with the elbow method. However, the overall performance of SOMs was relatively lower compared to K-means, indicating that K-means might be a more suitable choice for this particular dataset.
+  
+    \begin{figure}[h!]
+  	\begin{center}  % Usamos el entorno 'center'
+  		\includegraphics[width=0.45\textwidth]{images/SOM_clustering.png}
+  		\caption{Hierarchical clustering (HC)}
+  		\label{fig:SOM}
+  	\end{center}
+  \end{figure}
+  
+  \subsection{Comparative analysis of K-means, hierarchical clustering, and self-organizing maps}
+  
+  While clustering methods are essential for grouping data, comparing their performance can be challenging. The metrics employed in this study provide valuable insights into the relative strengths and weaknesses of each method. The following table \ref{tab:metrics_comparison} summarizes the key metrics and their corresponding values:
+  
+  \begin{table}[h!]
+  	\centering
+  	\begin{tabular}{|l|c|c|c|}
+  		\hline
+  		\textbf{Metric} & \textbf{K-Means (K=2)} & \textbf{Hierarchical} & \textbf{SOM} \\ \hline
+  		\textbf{Calinski-Harabasz Index} & 449.800 & 398.349 & 86.597 \\ \hline
+  		\textbf{Davies-Bouldin Index} & 0.942 & 1.002 & 1.192 \\ \hline
+  		\textbf{Silhouette Score} & 0.459 & 0.439 & 0.151 \\ \hline
+  		\textbf{V1 Score} & 0.036 & 0.014 & 0.335 \\ \hline
+  	\end{tabular}
+  	\caption{Comparison of clustering metrics across K-Means (K=2), Hierarchical Clustering, and SOM methods.}
+  	\label{tab:metrics_comparison}
+  \end{table}
+  
+  \begin{itemize}
+  	\item \textbf{Calinski-Harabasz Index}: K-means exhibits the highest value, indicating superior cluster separation.
+  	\item \textbf{Davies-Bouldin Index}: K-means also has the lowest value, suggesting compact and well-separated clusters.
+  	\item \textbf{Silhouette Score}: K-means again outperforms the other methods, demonstrating well-defined clusters.
+  	\item \textbf{V1 Score}: SOM shows the highest value, indicating greater stability when removing time points.
+  \end{itemize}
+  
+  \textbf{Overall Assessment}:K-means (K=2) emerges as the preferred clustering method, demonstrating excellent performance across multiple metrics. While SOM excels in terms of stability, K-means offers a superior balance of cluster compactness, separation, and overall quality. Hierarchical clustering provides a reasonable alternative, but falls short in comparison to K-means.
+  
+  
+  
+  \subsection{Comparative with the paper "Comparisons and validation of statistical clustering techniques for microarray gene expression data"}
+  
+  Technological advancements, particularly in artificial intelligence, have accelerated rapidly. As a result, optimizing methodologies has become a paramount task for the growing community of programmers. Comparing technologies from different eras can be challenging due to significant advancements in both approaches and results.
+  
+  The paper 'Comparisons and validation of statistical clustering techniques for microarray gene expression data' (May 2002) utilized S+ for analysis. Despite the over two-decade difference in technology, this study demonstrates that the methods employed in the original paper may not yield identical performance when using Python-based tools.
+  
+  While the original study considered K values from 4 to 12, our analysis suggests that K=2 provides superior results in kmeans for the current dataset. Although the elbow method and SOM might favor K=4, K=2 consistently outperforms them in terms of the V1 metric and overall clustering quality when implemented kmean using Python's scikit-learn library.
  
  \section{Conclusions}
  
- \textbf{Bold paragraph. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.}
+In this study, we conducted a comprehensive comparison of three clustering algorithms applied to a yeast sporulation dataset. The K-means algorithm, with K=2, demonstrated superior performance in terms of cluster compactness and separation, outperforming both hierarchical clustering and self-organizing maps. Nevertheless, each clustering method brings its own strengths and may perform better under different conditions or datasets. It is also crucial to consider the advancements in clustering methodologies and technology over time. By comparing our results to an older study, we observed that modern algorithms and computational power significantly enhance the quality of clustering outcomes, emphasizing the importance of continuous innovation in data analysis techniques.
 
 \bibliographystyle{plain}  % Puedes cambiar "plain" por el estilo de tu preferencia, como apalike, ieeetr, etc.
 \bibliography{bibliography}  % Aquí va el nombre de tu archivo .bib (sin la extensión .bib)
